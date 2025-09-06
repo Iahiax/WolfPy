@@ -1,0 +1,22 @@
+# تضمين الملفات الإضافية في الحزمة
+include README.md
+include LICENSE
+include requirements.txt
+include pyproject.toml
+include setup.py
+
+# تضمين ملفات الإعدادات والترجمات
+recursive-include wolf_py/config *.yaml
+recursive-include wolf_py/phrases *.json
+recursive-include wolf_py/examples *.py
+
+# تضمين ملفات __init__.py
+recursive-include wolf_py *.py
+
+# استبعاد الملفات غير المرغوب فيها
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude *.pyd
+global-exclude __pycache__
+global-exclude .git*
+global-exclude .DS_Store

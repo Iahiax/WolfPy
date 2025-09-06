@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wolf-py"
+version = "1.0.0"
+description = "مكتبة Python غير رسمية للاتصال بمنصة WOLF"
+authors = [
+    {name = "WOLF.py Community", email = "wolfpy@example.com"}
+]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Communications :: Chat",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+    "Natural Language :: Arabic",
+    "Natural Language :: English",
+]
+keywords = [
+    "wolf", "palringo", "chat", "bot", "messaging", 
+    "websocket", "async", "arabic", "python3"
+]
+dependencies = [
+    "aiohttp>=3.8.0",
+    "websockets>=10.0",
+    "PyYAML>=6.0",
+    "requests>=2.28.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=22.0.0",
+    "flake8>=5.0.0",
+    "mypy>=1.0.0",
+]
+redis = [
+    "redis>=4.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/wolfpy-community/wolf-py"
+"Bug Reports" = "https://github.com/wolfpy-community/wolf-py/issues"
+"Source Code" = "https://github.com/wolfpy-community/wolf-py"
+Documentation = "https://wolf-py.readthedocs.io/"
+
+[project.scripts]
+wolf-py = "wolf_py.examples.simple_bot:main"
+
+[tool.setuptools]
+packages = ["wolf_py", "wolf_py.src", "wolf_py.src.client", "wolf_py.src.commands", "wolf_py.src.models", "wolf_py.src.utils", "wolf_py.src.config", "wolf_py.src.events", "wolf_py.examples"]
+
+[tool.setuptools.package-data]
+wolf_py = ["config/*.yaml", "phrases/*.json", "examples/*.py"]
